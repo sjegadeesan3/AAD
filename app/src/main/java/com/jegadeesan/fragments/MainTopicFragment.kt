@@ -7,12 +7,15 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.jegadeesan.adapter.MainTopicAdapter
-import com.jegadeesan.data.MainTopic
 import com.jegadeesan.databinding.FragmentMainTopicBinding
+import com.jegadeesan.viewmodel.MainTopicViewModel
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 class MainTopicFragment : Fragment() {
 
     private var binding: FragmentMainTopicBinding? = null
+
+    private val mainTopicViewModel: MainTopicViewModel by sharedViewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,19 +37,8 @@ class MainTopicFragment : Fragment() {
     private fun initRecyclerView() {
         binding?.mainTopicRecyclerView?.apply {
             binding?.mainTopicRecyclerView?.layoutManager = LinearLayoutManager(activity)
-            adapter = MainTopicAdapter(getMainTopics())
+            adapter = MainTopicAdapter(mainTopicViewModel.getMainTopics())
         }
-    }
-
-    private fun getMainTopics(): List<MainTopic> {
-        //ToDo : Move to view model
-        val list = arrayListOf<MainTopic>()
-        list.add(MainTopic(1, "Android core"))
-        list.add(MainTopic(2, "User interface"))
-        list.add(MainTopic(3, "Data management"))
-        list.add(MainTopic(4, "Debugging"))
-        list.add(MainTopic(5, "Testing"))
-        return list
     }
 
     override fun onDestroyView() {
