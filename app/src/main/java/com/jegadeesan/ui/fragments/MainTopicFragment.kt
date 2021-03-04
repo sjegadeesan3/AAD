@@ -6,7 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.os.bundleOf
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.jegadeesan.R
 import com.jegadeesan.adapter.MainTopicAdapter
 import com.jegadeesan.data.MainTopic
 import com.jegadeesan.data.MainTopicConstants.ANDROID_CORE
@@ -24,6 +27,7 @@ class MainTopicFragment : Fragment(), MainTopicAdapter.MainTopicAdapterClickList
 
     private val mainTopicViewModel: MainTopicViewModel by sharedViewModel()
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -34,8 +38,14 @@ class MainTopicFragment : Fragment(), MainTopicAdapter.MainTopicAdapterClickList
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        if(activity is MainTopicFragmentInterface) {
+            (activity as MainTopicFragmentInterface).apply {
+                mainTopicFragmentInitSuccessCallBack()
+            }
+        }
         initRecyclerView()
     }
+
 
     private fun initRecyclerView() {
         binding?.mainTopicRecyclerView?.apply {
@@ -56,11 +66,17 @@ class MainTopicFragment : Fragment(), MainTopicAdapter.MainTopicAdapterClickList
             DATA_MANAGEMENT,
             DEBUGGING,
             TESTING-> {
-                Toast.makeText(activity, mainTopic.uniqueId, Toast.LENGTH_SHORT).show()
+                val bundle = bundleOf("mainTopic" to mainTopic)
+                findNavController().navigate(R.id.action_main_topic_fragment_to_sub_topic_fragment, bundle)
+
             }
             else -> {
                 Toast.makeText(activity, "Error!", Toast.LENGTH_SHORT).show()
             }
         }
+    }
+
+    interface MainTopicFragmentInterface {
+        fun mainTopicFragmentInitSuccessCallBack()
     }
 }

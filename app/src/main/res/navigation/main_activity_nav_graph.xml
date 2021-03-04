@@ -8,7 +8,21 @@
     <fragment
         android:id="@+id/main_topic_fragment"
         android:name="com.jegadeesan.ui.fragments.MainTopicFragment"
-        android:label="Blank"
-        tools:layout="@layout/fragment_main_topic" />
+        android:label="MainTopic"
+        tools:layout="@layout/fragment_main_topic" >
+        <action
+            android:id="@+id/action_main_topic_fragment_to_sub_topic_fragment"
+            app:destination="@id/sub_topic_fragment" />
+        <argument
+            android:name="mainTopic"
+            app:argType="com.jegadeesan.data.MainTopic" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/sub_topic_fragment"
+        android:name="com.jegadeesan.ui.fragments.SubTopicFragment"
+        android:label="SubTopic"
+        tools:layout="@layout/fragment_sub_topic" />
 
 </navigation>

@@ -9,7 +9,7 @@
     android:padding="@dimen/cardview_default_elevation"
     >
     <androidx.cardview.widget.CardView
-        android:id="@+id/main_topic_row_card_view"
+        android:id="@+id/topic_row_card_view"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_gravity="center"
@@ -24,7 +24,7 @@
         card_view:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/main_topic_name"
+            android:id="@+id/topic_name"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
