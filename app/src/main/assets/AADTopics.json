@@ -1,0 +1,238 @@
+{
+  "mainTopics": [
+    {
+      "id": 1,
+      "name": "Android core",
+      "subTopics": [
+        {
+          "id": 1,
+          "name": "Android Developers -> Toasts"
+        },
+        {
+          "id": 2,
+          "name": "Android Developers -> Snackbar"
+        },
+        {
+          "id": 3,
+          "name": "Android Developers -> Localize your app"
+        },
+        {
+          "id": 4,
+          "name": "Android Developers -> Application fundamentals"
+        },
+        {
+          "id": 5,
+          "name": "Android Developers -> Create a notification"
+        },
+        {
+          "id": 6,
+          "name": "Android Developers -> AndroidX overview"
+        },
+        {
+          "id": 7,
+          "name": "Android Developers -> Getting started with Jetpack"
+        },
+        {
+          "id": 8,
+          "name": "Android Developers -> Android KTX (Kotlin)"
+        },
+        {
+          "id": 9,
+          "name": "Codelabs -> Notifications"
+        },
+        {
+          "id": 10,
+          "name": "Codelabs -> WorkManager (Java)"
+        },
+        {
+          "id": 11,
+          "name": "Codelabs -> WorkManager (Kotlin)"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "User interface",
+      "subTopics": [
+        {
+          "id": 1,
+          "name": "Android Developers -> Build a responsive UI with ConstraintLayout"
+        },
+        {
+          "id": 2,
+          "name": "Android Developers -> Create a list with RecyclerView"
+        },
+        {
+          "id": 3,
+          "name": "Android Developers -> Create a navigation drawer"
+        },
+        {
+          "id": 4,
+          "name": "Android Developers -> Custom view components"
+        },
+        {
+          "id": 5,
+          "name": "Android Developers -> Build more accessible custom views"
+        },
+        {
+          "id": 6,
+          "name": "Android Developers -> Styles and themes"
+        },
+        {
+          "id": 7,
+          "name": "Android Developers -> setContentDescription()"
+        },
+        {
+          "id": 8,
+          "name": "Android Developers -> Adding accessibility features to apps for blind and visually-impaired users"
+        },
+        {
+          "id": 9,
+          "name": "Android Developers -> Paging Library Overview"
+        },
+        {
+          "id": 10,
+          "name": "Android Tool Time - Building interfaces with ConstraintLayout in AS"
+        },
+        {
+          "id": 11,
+          "name": "Codelabs -> Activities and intents"
+        },
+        {
+          "id": 12,
+          "name": "Codelabs -> Your first interactive UI"
+        },
+        {
+          "id": 13,
+          "name": "Codelabs -> Themes and final touches"
+        },
+        {
+          "id": 14,
+          "name": "Codelabs -> RecyclerView"
+        },
+        {
+          "id": 15,
+          "name": "Codelabs -> Menus and pickers"
+        },
+        {
+          "id": 16,
+          "name": "Codelabs -> User navigation"
+        },
+        {
+          "id": 17,
+          "name": "Codelabs -> Material Components (Java)"
+        },
+        {
+          "id": 18,
+          "name": "Codelabs -> Material Components (Kotlin)"
+        },
+        {
+          "id": 19,
+          "name": "Codelabs -> Lifecycles"
+        },
+        {
+          "id": 20,
+          "name": "Codelabs -> Add user interactivity"
+        },
+        {
+          "id": 21,
+          "name": "Codelabs -> Constraint layout using the Layout Editor"
+        },
+        {
+          "id": 22,
+          "name": "Codelabs -> RecyclerView fundamentals (Kotlin)"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Data management",
+      "subTopics": [
+        {
+          "id": 1,
+          "name": "Android Developers -> Shared preferences"
+        },
+        {
+          "id": 2,
+          "name": "Codelabs -> Room, LiveData and ViewModel"
+        },
+        {
+          "id": 3,
+          "name": "Codelabs -> Repository"
+        },
+        {
+          "id": 4,
+          "name": "Codelabs -> Drawables, styles, and themes"
+        },
+        {
+          "id": 5,
+          "name": "Codelabs -> Shared preferences"
+        },
+        {
+          "id": 6,
+          "name": "Codelabs -> App settings"
+        },
+        {
+          "id": 7,
+          "name": "Codelabs -> ViewModel and ViewModelFactory"
+        },
+        {
+          "id": 8,
+          "name": "Codelabs -> Room with a View (Java)"
+        },
+        {
+          "id": 9,
+          "name": "Codelabs -> Room with a View (Kotlin)"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Debugging",
+      "subTopics": [
+        {
+          "id": 1,
+          "name": "Android Developers -> Debug your app"
+        },
+        {
+          "id": 2,
+          "name": "Android Dev Fundamentals -> Write and view logs with Logcat"
+        },
+        {
+          "id": 3,
+          "name": "Codelabs -> Android Studio debugger"
+        },
+        {
+          "id": 4,
+          "name": "Codelabs -> Add log statements to your app"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Testing",
+      "subTopics": [
+        {
+          "id": 1,
+          "name": "Android Developers -> Fundamentals of testing"
+        },
+        {
+          "id": 2,
+          "name": "Android Dev Fundamentals -> Automate UI tests"
+        },
+        {
+          "id": 3,
+          "name": "Codelabs -> Unit tests"
+        },
+        {
+          "id": 4,
+          "name": "Codelabs -> Android Testing -> Unit testing with JUnit and Mockito"
+        },
+        {
+          "id": 5,
+          "name": "Codelabs -> Android Testing -> Espresso for UI testing"
+        }
+      ]
+    }
+  ]
+}
