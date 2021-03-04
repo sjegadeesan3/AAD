@@ -1,7 +1,8 @@
-package com.jegadeesan
+package com.jegadeesan.ui.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.jegadeesan.R
 
 class MainActivity : AppCompatActivity() {
 

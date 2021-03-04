@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/main_topic_fragment"
-        android:name="com.jegadeesan.fragments.MainTopicFragment"
+        android:name="com.jegadeesan.ui.fragments.MainTopicFragment"
         android:label="Blank"
         tools:layout="@layout/fragment_main_topic" />
 

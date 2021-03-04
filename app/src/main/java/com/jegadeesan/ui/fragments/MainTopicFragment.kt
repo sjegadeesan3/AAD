@@ -1,4 +1,4 @@
-package com.jegadeesan.fragments
+package com.jegadeesan.ui.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,7 +9,6 @@ import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.jegadeesan.adapter.MainTopicAdapter
 import com.jegadeesan.data.MainTopic
-import com.jegadeesan.data.MainTopicConstants
 import com.jegadeesan.data.MainTopicConstants.ANDROID_CORE
 import com.jegadeesan.data.MainTopicConstants.DATA_MANAGEMENT
 import com.jegadeesan.data.MainTopicConstants.DEBUGGING
