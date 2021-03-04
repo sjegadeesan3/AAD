@@ -15,18 +15,18 @@ class MainTopicViewModel : ViewModel(), KoinComponent {
     private val AAD_TOPICS_JSON_FILE = "AADTopics.json"
 
     fun getMainTopics(): List<MainTopic> {
-        val aadTopics = try {
-            gson.fromJson(
-                fileUtil.loadJSONFromAsset(AAD_TOPICS_JSON_FILE),
-                AadTopics::class.java
-            )
+        val list = arrayListOf<MainTopic>()
+        getAadTopics()?.mainTopics?.forEach { topic ->
+            list.add(MainTopic(mainTopicName = topic.name, uniqueId = topic.uniqueId))
+        }
+        return list
+    }
+
+    private fun getAadTopics(): AadTopics? {
+        return try {
+            gson.fromJson(fileUtil.loadJSONFromAsset(AAD_TOPICS_JSON_FILE), AadTopics::class.java)
         } catch (e: Exception) {
             null
         }
-        val list = arrayListOf<MainTopic>()
-        aadTopics?.mainTopics?.forEach { topic ->
-            list.add(MainTopic(topic.id, topic.name))
-        }
-        return list
     }
 }

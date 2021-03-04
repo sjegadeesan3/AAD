@@ -3,6 +3,7 @@
     {
       "id": 1,
       "name": "Android core",
+      "uniqueId": "ANDROID_CORE",
       "subTopics": [
         {
           "id": 1,
@@ -53,6 +54,7 @@
     {
       "id": 2,
       "name": "User interface",
+      "uniqueId": "USER_INTERFACE",
       "subTopics": [
         {
           "id": 1,
@@ -147,6 +149,7 @@
     {
       "id": 3,
       "name": "Data management",
+      "uniqueId": "DATA_MANAGEMENT",
       "subTopics": [
         {
           "id": 1,
@@ -189,6 +192,7 @@
     {
       "id": 4,
       "name": "Debugging",
+      "uniqueId": "DEBUGGING",
       "subTopics": [
         {
           "id": 1,
@@ -211,6 +215,7 @@
     {
       "id": 5,
       "name": "Testing",
+      "uniqueId": "TESTING",
       "subTopics": [
         {
           "id": 1,

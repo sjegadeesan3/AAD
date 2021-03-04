@@ -1,14 +1,12 @@
 package com.jegadeesan.adapter
 
-import android.util.Log
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.jegadeesan.data.MainTopic
 import com.jegadeesan.databinding.MainTopicItemRowBinding
 
-class MainTopicAdapter(private val mainTopicList: List<MainTopic>) :
+class MainTopicAdapter(private val clickListener: MainTopicAdapterClickListener, private val mainTopicList: List<MainTopic>) :
     RecyclerView.Adapter<MainTopicAdapter.MainTopicViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainTopicViewHolder {
@@ -23,23 +21,24 @@ class MainTopicAdapter(private val mainTopicList: List<MainTopic>) :
     override fun onBindViewHolder(holder: MainTopicViewHolder, position: Int) {
         val mainTopic = mainTopicList[position]
         holder.bind(mainTopic)
+        initClickListener(holder, mainTopic)
     }
 
-    class MainTopicViewHolder(private val mainTopicItemRowBinding: MainTopicItemRowBinding) :
-        RecyclerView.ViewHolder(mainTopicItemRowBinding.root), View.OnClickListener {
-
-        private val TAG = MainTopicViewHolder::class.simpleName
-
-        init {
-            mainTopicItemRowBinding.mainTopicRowCardView.setOnClickListener(this)
+    private fun initClickListener(holder: MainTopicViewHolder, mainTopic: MainTopic) {
+        holder.mainTopicItemRowBinding.mainTopicRowCardView.setOnClickListener {
+            clickListener.onClick(mainTopic)
         }
+    }
 
-        override fun onClick(view: View?) {
-            Log.d(TAG, "View Clicked")
-        }
+    class MainTopicViewHolder(val mainTopicItemRowBinding: MainTopicItemRowBinding) :
+        RecyclerView.ViewHolder(mainTopicItemRowBinding.root) {
 
         fun bind(mainTopic: MainTopic) {
             mainTopicItemRowBinding.mainTopicName.text = mainTopic.mainTopicName
         }
+    }
+
+    interface MainTopicAdapterClickListener {
+        fun onClick(mainTopic: MainTopic)
     }
 }

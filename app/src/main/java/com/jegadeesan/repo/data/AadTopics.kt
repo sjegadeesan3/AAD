@@ -11,6 +11,7 @@ data class AadTopics (
 data class Topic(
     val id: Int,
     val name: String,
+    val uniqueId: String,
     val subTopics: List<SubTopic>
 )
 
