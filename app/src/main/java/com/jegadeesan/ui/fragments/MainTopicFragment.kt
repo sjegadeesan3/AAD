@@ -17,7 +17,7 @@ import com.jegadeesan.data.MainTopicConstants.DEBUGGING
 import com.jegadeesan.data.MainTopicConstants.TESTING
 import com.jegadeesan.data.MainTopicConstants.USER_INTERFACE
 import com.jegadeesan.databinding.FragmentMainTopicBinding
-import com.jegadeesan.viewmodel.MainTopicViewModel
+import com.jegadeesan.viewmodel.TopicViewModel
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 class MainTopicFragment : Fragment(), MainTopicAdapter.MainTopicAdapterClickListener {
@@ -25,7 +25,7 @@ class MainTopicFragment : Fragment(), MainTopicAdapter.MainTopicAdapterClickList
     private var binding: FragmentMainTopicBinding? = null
 
     private var mainTopicFragmentInterface: MainTopicFragmentInterface? = null
-    private val mainTopicViewModel: MainTopicViewModel by sharedViewModel()
+    private val topicViewModel: TopicViewModel by sharedViewModel()
 
 
     override fun onCreateView(
@@ -38,14 +38,14 @@ class MainTopicFragment : Fragment(), MainTopicAdapter.MainTopicAdapterClickList
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        initRecyclerView()
         mainTopicFragmentInterface?.mainTopicFragmentInitSuccessCallBack()
+        initRecyclerView()
     }
 
     private fun initRecyclerView() {
         binding?.mainTopicRecyclerView?.apply {
-            binding?.mainTopicRecyclerView?.layoutManager = LinearLayoutManager(activity)
-            adapter = MainTopicAdapter(this@MainTopicFragment, mainTopicViewModel.getMainTopics())
+            layoutManager = LinearLayoutManager(activity)
+            adapter = MainTopicAdapter(this@MainTopicFragment, topicViewModel.getMainTopics())
         }
     }
 

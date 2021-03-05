@@ -5,11 +5,9 @@
     android:layout_height="match_parent"
     tools:context=".ui.fragments.SubTopicFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:id="@+id/info"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/sub_topic_recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="match_parent" />
 
 </FrameLayout>

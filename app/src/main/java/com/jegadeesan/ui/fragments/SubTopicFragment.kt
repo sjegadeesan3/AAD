@@ -6,15 +6,21 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.jegadeesan.R
+import com.jegadeesan.adapter.SubTopicAdapter
 import com.jegadeesan.data.MainTopic
+import com.jegadeesan.data.SubTopic
 import com.jegadeesan.databinding.FragmentSubTopicBinding
+import com.jegadeesan.viewmodel.TopicViewModel
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
-class SubTopicFragment : Fragment() {
+class SubTopicFragment : Fragment(), SubTopicAdapter.SubTopicAdapterClickListener {
 
     private var mainTopic: MainTopic? = null
     private var subTopicFragmentInterface: SubTopicFragmentInterface? = null
-    lateinit var binding: FragmentSubTopicBinding
+    private var binding: FragmentSubTopicBinding? = null
+    private val topicViewModel: TopicViewModel by sharedViewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,15 +43,21 @@ class SubTopicFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentSubTopicBinding.inflate(inflater, container, false)
-        return binding.root
+        return binding?.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         subTopicFragmentInterface?.subTopicFragmentInitSuccessCallBack(mainTopic?.mainTopicName ?: getString(R.string.sub_topic_toolbar_header))
-        binding.info.text = mainTopic?.mainTopicName
+        initRecyclerView()
     }
 
+    private fun initRecyclerView() {
+        binding?.subTopicRecyclerView?.apply {
+            layoutManager = LinearLayoutManager(activity)
+            adapter = SubTopicAdapter(this@SubTopicFragment, topicViewModel.getSubTopics(mainTopic?.uniqueId))
+        }
+    }
 
     interface SubTopicFragmentInterface {
         fun subTopicFragmentInitSuccessCallBack(toolbarHeader: String)
@@ -53,5 +65,9 @@ class SubTopicFragment : Fragment() {
 
     companion object {
         const val MAIN_TOPIC = "mainTopic"
+    }
+
+    override fun onClick(subTopic: SubTopic) {
+
     }
 }
