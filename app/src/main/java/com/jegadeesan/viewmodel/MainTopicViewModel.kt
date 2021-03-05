@@ -12,7 +12,6 @@ class MainTopicViewModel : ViewModel(), KoinComponent {
 
     private val gson: Gson by inject()
     private val fileUtil: FileUtil by inject()
-    private val AAD_TOPICS_JSON_FILE = "AADTopics.json"
 
     fun getMainTopics(): List<MainTopic> {
         val list = arrayListOf<MainTopic>()
@@ -28,5 +27,9 @@ class MainTopicViewModel : ViewModel(), KoinComponent {
         } catch (e: Exception) {
             null
         }
+    }
+
+    companion object {
+        private const val AAD_TOPICS_JSON_FILE = "AADTopics.json"
     }
 }
