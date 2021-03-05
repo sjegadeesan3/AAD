@@ -2,4 +2,7 @@
     <string name="app_name">AAD</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="main_topic_toolbar_header">Main Topic</string>
+    <string name="sub_topic_toolbar_header">Sub Topic</string>
+    <string name="invalid_main_topic_selection">Oops! Selected main topic is invalid</string>
 </resources>

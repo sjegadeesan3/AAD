@@ -5,11 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.jegadeesan.R
 import com.jegadeesan.data.MainTopic
 import com.jegadeesan.databinding.FragmentSubTopicBinding
 import java.lang.Exception
-
-private const val MAIN_TOPIC = "mainTopic"
 
 class SubTopicFragment : Fragment() {
 
@@ -39,7 +38,7 @@ class SubTopicFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         if(activity is SubTopicFragmentInterface) {
             (activity as SubTopicFragmentInterface).apply {
-                subTopicFragmentInitSuccessCallBack()
+                subTopicFragmentInitSuccessCallBack(mainTopic?.mainTopicName ?: getString(R.string.sub_topic_toolbar_header))
             }
         }
         binding.info.text = mainTopic?.mainTopicName
@@ -47,6 +46,10 @@ class SubTopicFragment : Fragment() {
 
 
     interface SubTopicFragmentInterface {
-        fun subTopicFragmentInitSuccessCallBack()
+        fun subTopicFragmentInitSuccessCallBack(toolbarHeader: String)
+    }
+
+    companion object {
+        const val MAIN_TOPIC = "mainTopic"
     }
 }

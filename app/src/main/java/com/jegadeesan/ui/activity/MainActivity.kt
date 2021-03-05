@@ -2,9 +2,14 @@ package com.jegadeesan.ui.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.core.os.bundleOf
+import androidx.navigation.Navigation.findNavController
+import com.jegadeesan.R
+import com.jegadeesan.data.MainTopic
 import com.jegadeesan.databinding.ActivityMainBinding
 import com.jegadeesan.ui.fragments.MainTopicFragment
 import com.jegadeesan.ui.fragments.SubTopicFragment
+import com.jegadeesan.ui.fragments.SubTopicFragment.Companion.MAIN_TOPIC
 
 class MainActivity : AppCompatActivity(), MainTopicFragment.MainTopicFragmentInterface, SubTopicFragment.SubTopicFragmentInterface {
 
@@ -23,25 +28,25 @@ class MainActivity : AppCompatActivity(), MainTopicFragment.MainTopicFragmentInt
 
     private fun initToolbar() {
         setSupportActionBar(binding.toolbar)
-//        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-//        supportActionBar?.setDisplayShowHomeEnabled(false)
-        supportActionBar?.title = "AAD Project"
-        binding.toolbar.title = "AAD Project"
     }
 
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()
         return true
-
     }
 
     override fun mainTopicFragmentInitSuccessCallBack() {
         supportActionBar?.setDisplayHomeAsUpEnabled(false)
-        supportActionBar?.title = "Main Topic"
+        supportActionBar?.title = getString(R.string.main_topic_toolbar_header)
     }
 
-    override fun subTopicFragmentInitSuccessCallBack() {
+    override fun onSelectMainTopic(mainTopic: MainTopic) {
+        val bundle = bundleOf(MAIN_TOPIC to mainTopic)
+        findNavController(binding.navHostFragment).navigate(R.id.action_main_topic_fragment_to_sub_topic_fragment, bundle)
+    }
+
+    override fun subTopicFragmentInitSuccessCallBack(toolbarHeader: String) {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.title = "Sub Topic"
+        supportActionBar?.title = toolbarHeader
     }
 }

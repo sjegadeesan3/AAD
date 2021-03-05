@@ -1,13 +1,12 @@
 package com.jegadeesan.ui.fragments
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.core.os.bundleOf
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.jegadeesan.R
 import com.jegadeesan.adapter.MainTopicAdapter
@@ -25,6 +24,7 @@ class MainTopicFragment : Fragment(), MainTopicAdapter.MainTopicAdapterClickList
 
     private var binding: FragmentMainTopicBinding? = null
 
+    private var mainTopicFragmentInterface: MainTopicFragmentInterface? = null
     private val mainTopicViewModel: MainTopicViewModel by sharedViewModel()
 
 
@@ -38,19 +38,21 @@ class MainTopicFragment : Fragment(), MainTopicAdapter.MainTopicAdapterClickList
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        if(activity is MainTopicFragmentInterface) {
-            (activity as MainTopicFragmentInterface).apply {
-                mainTopicFragmentInitSuccessCallBack()
-            }
-        }
         initRecyclerView()
+        mainTopicFragmentInterface?.mainTopicFragmentInitSuccessCallBack()
     }
-
 
     private fun initRecyclerView() {
         binding?.mainTopicRecyclerView?.apply {
             binding?.mainTopicRecyclerView?.layoutManager = LinearLayoutManager(activity)
             adapter = MainTopicAdapter(this@MainTopicFragment, mainTopicViewModel.getMainTopics())
+        }
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        if(context is MainTopicFragmentInterface) {
+            mainTopicFragmentInterface = context
         }
     }
 
@@ -66,17 +68,16 @@ class MainTopicFragment : Fragment(), MainTopicAdapter.MainTopicAdapterClickList
             DATA_MANAGEMENT,
             DEBUGGING,
             TESTING-> {
-                val bundle = bundleOf("mainTopic" to mainTopic)
-                findNavController().navigate(R.id.action_main_topic_fragment_to_sub_topic_fragment, bundle)
-
+                mainTopicFragmentInterface?.onSelectMainTopic(mainTopic)
             }
             else -> {
-                Toast.makeText(activity, "Error!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(activity, getString(R.string.invalid_main_topic_selection), Toast.LENGTH_SHORT).show()
             }
         }
     }
 
     interface MainTopicFragmentInterface {
         fun mainTopicFragmentInitSuccessCallBack()
+        fun onSelectMainTopic(mainTopic: MainTopic)
     }
 }
