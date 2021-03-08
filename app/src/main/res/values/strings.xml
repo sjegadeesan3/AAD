@@ -14,4 +14,9 @@
     <string name="top_left_toast">Top Left Toast</string>
     <string name="custom_toast">Custom Toast</string>
     <string name="custom_toast_note">Note: Custom toast views are deprecated. Apps can create a standard text toast method, or use a Snackbar when in the foreground.</string>
+    <string name="show_snackbar">Show Snackbar</string>
+    <string name="show_snackbar_center">Show Snackbar Center</string>
+    <string name="action_snackbar">Action Snackbar</string>
+    <string name="close">Close</string>
+    <string name="snackbar_text">Hello! I am Snackbar</string>
 </resources>
