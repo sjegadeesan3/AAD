@@ -53,6 +53,9 @@ class MainTopicFragment : Fragment(), MainTopicAdapter.MainTopicAdapterClickList
         super.onAttach(context)
         if(context is MainTopicFragmentInterface) {
             mainTopicFragmentInterface = context
+        } else {
+            throw ClassCastException(activity.toString()
+                    + " must implement MainTopicFragmentInterface");
         }
     }
 

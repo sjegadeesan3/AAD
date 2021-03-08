@@ -7,11 +7,13 @@
       "subTopics": [
         {
           "id": 1,
-          "name": "Android Developers -> Toasts"
+          "name": "Android Developers -> Toasts",
+          "uniqueId": "ANDROID_CORE_TOAST"
         },
         {
           "id": 2,
-          "name": "Android Developers -> Snackbar"
+          "name": "Android Developers -> Snackbar",
+          "uniqueId": "ANDROID_CORE_SNACK_BAR"
         },
         {
           "id": 3,

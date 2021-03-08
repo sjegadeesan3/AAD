@@ -6,5 +6,9 @@ object MainTopicConstants {
     const val DATA_MANAGEMENT = "DATA_MANAGEMENT"
     const val DEBUGGING = "DEBUGGING"
     const val TESTING = "TESTING"
+}
 
+object SubTopicConstants {
+    const val ANDROID_CORE_SNACK_BAR = "ANDROID_CORE_SNACK_BAR"
+    const val ANDROID_CORE_TOAST = "ANDROID_CORE_TOAST"
 }

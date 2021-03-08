@@ -30,6 +30,10 @@ class SubTopicFragment : Fragment(), SubTopicAdapter.SubTopicAdapterClickListene
     override fun onAttach(context: Context) {
         super.onAttach(context)
         subTopicFragmentInterface = context as? SubTopicFragmentInterface
+        if(subTopicFragmentInterface == null) {
+            throw ClassCastException(activity.toString()
+                    + " must implement MainTopicFragmentInterface");
+        }
     }
 
     private fun initArguments() {
@@ -61,6 +65,7 @@ class SubTopicFragment : Fragment(), SubTopicAdapter.SubTopicAdapterClickListene
 
     interface SubTopicFragmentInterface {
         fun subTopicFragmentInitSuccessCallBack(toolbarHeader: String)
+        fun onSelectSubTopic(subTopic: SubTopic)
     }
 
     companion object {
@@ -68,6 +73,6 @@ class SubTopicFragment : Fragment(), SubTopicAdapter.SubTopicAdapterClickListene
     }
 
     override fun onClick(subTopic: SubTopic) {
-
+        subTopicFragmentInterface?.onSelectSubTopic(subTopic)
     }
 }

@@ -12,5 +12,5 @@ data class MainTopic (
 @Keep
 data class SubTopic (
     val subTopicName: String = "",
-    val uniqueId: String = ""
+    val uniqueId: String? = ""
 ): Serializable

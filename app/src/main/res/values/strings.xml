@@ -5,4 +5,9 @@
     <string name="main_topic_toolbar_header">Main Topic</string>
     <string name="sub_topic_toolbar_header">Sub Topic</string>
     <string name="invalid_main_topic_selection">Oops! Selected main topic is invalid</string>
+    <string name="short_toast">Short Toast</string>
+    <string name="long_toast">Long Toast</string>
+    <string name="short_toast_message">This is short toast</string>
+    <string name="long_toast_message">This is Long toast</string>
+    <string name="title_toast">Toast</string>
 </resources>

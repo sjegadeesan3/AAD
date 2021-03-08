@@ -46,7 +46,7 @@ class TopicViewModel : ViewModel(), KoinComponent {
         val subTopicsList = arrayListOf<SubTopic>()
 
         subTopics.forEach {
-            subTopicsList.add(SubTopic(it.name, ""))
+            subTopicsList.add(SubTopic(it.name, it.uniqueId))
         }
         return subTopicsList
     }

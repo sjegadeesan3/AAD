@@ -18,5 +18,6 @@ data class Topic(
 @Keep
 data class SubTopic(
     val id: Int,
-    val name: String
+    val name: String,
+    val uniqueId: String?
 )
