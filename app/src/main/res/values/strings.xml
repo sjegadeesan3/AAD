@@ -10,6 +10,7 @@
     <string name="short_toast_message">This is short toast</string>
     <string name="long_toast_message">This is Long toast</string>
     <string name="title_toast">Toast</string>
+    <string name="title_snackbar">SnackBar</string>
     <string name="top_left_toast">Top Left Toast</string>
     <string name="custom_toast">Custom Toast</string>
     <string name="custom_toast_note">Note: Custom toast views are deprecated. Apps can create a standard text toast method, or use a Snackbar when in the foreground.</string>

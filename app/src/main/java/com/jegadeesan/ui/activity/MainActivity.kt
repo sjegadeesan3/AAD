@@ -61,7 +61,8 @@ class MainActivity : AppCompatActivity(), MainTopicFragment.MainTopicFragmentInt
                 startActivity(intent)
             }
             ANDROID_CORE_SNACK_BAR -> {
-
+                val intent = Intent(this, SnackBarActivity::class.java)
+                startActivity(intent)
             }
             else -> {
 
